@@ -1,0 +1,50 @@
+[
+	{
+		"text": "Hello World!",
+		"icon": "happy.png"
+	},
+	{
+		"text": "delay. test commas,,,,, test periods...!!!???",
+		"icon": "normal.png",
+		"delay": 0.03
+	},
+	{
+		"text": "custom delay: a&b&c&d&e&.",
+		"icon": "wut.png",
+		"custom delay": 0.3
+	},
+	{
+		"text": "error/default values:",
+		"icon": "sad.png"
+	},
+	{
+
+	},
+	{
+		"text": "custom textbox and textbox/icon color, font...",
+		"icon": "normal.png",
+		"textbox": "FancyTextbox.png",
+		"font": ["Oswald.ttf", 40],
+		"textbox color": "#AAAAAA",
+		"icon color": "#AAAAAA"
+	},
+	{
+		"text": "BBCode in combo with custom effects and newlines:",
+		"icon": "why.png",
+		"textbox": "default",
+		"textbox color": "#FFFFFF",
+		"icon color": "#FFFFFF"
+	},
+	{
+		"text": "[wave amp=60 freq=5]Waveeeee[/wave]\n[tornado radius=5 freq=5]Tornadoooo[/tornado]\n[shake rate=20 level=7]Shakeeeeee[/shake]\n[rainbow freq=.1 sat=0.8 val=0.8 speed=1.0]Rainbowwwww[/rainbow]",
+		"icon": "normal.png"
+	},
+	{
+		"text": "hi! this whole project is just a silly lil thing im working on!",
+		"icon": "happy.png"
+	},
+	{
+		"text": " its nowhere near being finished, but if ud like to try it out im happy to share!",
+		"icon": "normal.png"
+	}
+]

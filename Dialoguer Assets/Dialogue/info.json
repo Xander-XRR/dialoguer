@@ -1,0 +1,29 @@
+[
+	{
+		"_comment general info 1": "all almost all provided values dont need to be spesified/maintain their value from line to line, for more info please take a look at the REAME file",
+		"_comment general info 2": "all time variables are in seconds, and all images are spesified by their path. ill be implimenting a cleaner solution soon!",
+		"_comment general info 3": "all values with 'WIP!' set are work in progress and unusuable until fully implimented.",
+
+		"text": "this is the text! use & for an extra long delay! also, if you dont want any text onscreen, still pass this variable or else itll print error text!",
+		
+		"_comment delay, custom delay and amount": "'delay' is the delay between characters. 'custom delay' is the delay produced by using '&'. 'amount' is the amount of characters shown per cycle.",
+		"_comment important note": "due to limitations in the godot engine, times passed bellow 0.05 seconds may result in ",
+		"delay": 0.03,
+		"custom delay": 0.5,
+		"amount": 1.0,
+		
+		"_comment end time": "'end time' is the ammout of seconds before the next line gets processed.",
+		"end time": 1.0,
+		
+		"_comment icon and textbox": "'icon' is the Icon used in the dialog box, using an image file. recommended size: 128x128 px. 'textbox' allows you to change the textbox sprite. to return to default texture, use 'default'. recommended size: 960x320 px.",
+		"icon": "normal.png",
+		"textbox": "FancyTextbox.png",
+		
+		"_comment textbox/icon color": "'textbox color' dictates the modulation of the textboxs border, 'icon color' dictates the modulation of the 'icon'.",
+		"textbox color": "#FFFFFF",
+		"icon color": "#FFFFFF",
+		
+		"_comment font": "'font' allows you to set the font for the line, if none is set itll default to the last set font.",
+		"font": "Jersey15-Regular.ttf"
+	}
+]
