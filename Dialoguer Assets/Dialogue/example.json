@@ -1,0 +1,41 @@
+[
+    {
+        "text": "Hello World!",
+        "icon": "happy.png",
+        "prefix": ["prefix_undertale.png", "", "", ""]
+    },
+    {
+        "text": "This is line Nr 2!",
+        "icon": "normal.png",
+        "prefix": ["prefix_undertale.png", "", "", ""]
+    },
+    {
+        "text": "This is slower Text, and this is even s&l&o&w&e&r&!",
+        "icon": "happy.png",
+        "delay": 0.05,
+        "custom delay": 0.3,
+        "prefix": ["prefix_undertale.png", "", "", ""]
+    },
+    {
+        "text": "This text will diss-a-pear in 3... 2... 1... Now!",
+        "icon": "normal.png",
+        "end delay": 0,
+        "prefix": ["prefix_undertale.png", "", "", ""]
+    },
+    {
+        "text": "ooooo cool textbox and icon!",
+        "icon": "happy.png",
+        "icon color": "#45C4C4",
+        "textbox color": "#0A6666",
+        "prefix": ["prefix_undertale.png", "", "", ""]
+    },
+    {
+        "text": "ooooo now fancy prefixes\nAnd another one!",
+        "icon": "normal.png",
+        "icon color": "#FFFFFF",
+        "textbox color": "#FFFFFF",
+        "prefix": ["prefix_undertale.png", "prefix_star.png", "", ""],
+        "prefix delay": [0, 1.2, 0, 0],
+        "prefix color": ["#12353F", "#AAB3ED", "", ""]
+    }
+]

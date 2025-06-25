@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://ud73lv1shyos"]
+
+[ext_resource type="FontFile" uid="uid://cejbo1ev5c0n2" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="1_ole1v"]
+
+[resource]
+base_font = ExtResource("1_ole1v")
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
