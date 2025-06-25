@@ -10,7 +10,7 @@ Undertale style Dialogue GIF Generator made to be as customizable as Godot allow
 # Instructions
 To create a Dialogue GIF, follow these Steps:
 1. Install ffmpeg, its the program used to actually generate the GIF.
-2. Open the Program at least once. It will automatically generate the folders you'll need for your textboxes in your Documents Folder under `Documents/Dialoguer Assets`.
+2. Open Dialoguer at least once. It will automatically generate the folders you'll need for your textboxes in your Documents Folder under `Documents/Dialoguer Assets`.
 3. Go to `/Dialoguer Assets/Dialogue` and create an empty document/empty text file.
 4. Name it whatever you want and make it a JSON file. (if you made an empty text file, replace the .txt at the end with .json)
 5. Start typing! In the downloaded ZIP file you should find two files called 'info.json' and 'example.json', the former showing all available variables and the latter showing an example of how to use some of them.
