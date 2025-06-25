@@ -22,6 +22,8 @@ func _ready() -> void:
 	var replaced_text = original_text.replace("PLATFORM", platform)
 	info_dialog.dialog_text = replaced_text
 	
+	output_name.grab_focus()
+	
 
 
 func removal_prompt():

@@ -13,6 +13,7 @@ config_version=5
 config/name="Dialoguer"
 run/main_scene="uid://ci8uddxiqsxym"
 config/features=PackedStringArray("4.4", "Mobile")
+run/max_fps=30
 config/icon="res://icon.svg"
 
 [autoload]

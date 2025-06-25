@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@onready var new_process: Button = $NewProcess
+
 @onready var command_output: TextEdit = $CommandOutput
 @onready var confirmation: ConfirmationDialog = $ConfirmationDialog
 
@@ -27,6 +29,8 @@ func _ready() -> void:
 	
 	if Global.auto_cleanup == true:
 		Global.cleanup("Frames")
+	
+	new_process.grab_focus()
 	
 
 func generate_gif(frames_path: String, gifs_path: String, output_name: String) -> void:
