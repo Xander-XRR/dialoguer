@@ -15,8 +15,10 @@
 		"_comment end delay": "'end delay' is the ammout of seconds before the next line gets processed. goes instantly if set to 0",
 		"end delay": 1.0,
 		
-		"_comment icon and textbox": "'icon' is the Icon used in the dialog box, using an image file. recommended size: 128x128 px. 'textbox' allows you to change the textbox sprite. to return to default texture, use 'default'. recommended size: 960x320 px.",
+		"_comment icon and icon scale": "'icon' is the Icon used in the dialog box, using an image file. recommended size: 128x128 px. 'icon scale' allows you to scale the icon to be bigger or smaller.",
+		"_comment textbox": "'textbox' allows you to change the textbox sprite. to return to default texture, use 'default'. recommended size: 960x320 px.",
 		"icon": "normal.png",
+		"icon scale": "WIP!",
 		"textbox": "FancyTextbox.png",
 		
 		"_comment textbox/icon color": "'textbox color' dictates the modulation of the textboxs border, 'icon color' dictates the modulation of the 'icon'.",
@@ -28,7 +30,7 @@
 		"_comment prefix delay": "'prefix delay' indicates how much time in seconds passes before the prefix in said slot appears. this is necessary because of font size, character delay, custom delay, etc",
 		"_comment extra help": "because this prefix stuff may not be immediatly obvious, you can either check out example.json or visit this video to learn more: WIP!",
 		"prefix": ["prefix_undertale.png", "", "prefix_undertale.png", "prefix_star.png"],
-		"prefix offset": [[0, 0], [0, 0], [0, 0], [0, 0]],
+		"prefix offset": "WIP!",
 		"prefix color": ["#FFFFFF", "", "#AAAAAA", ""],
 		"prefix delay": [1, 0, 3, 5],
 
