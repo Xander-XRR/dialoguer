@@ -4,16 +4,16 @@
 		"_comment general info 2": "all time variables are in seconds, and all images are spesified by their path. ill be implimenting a cleaner solution soon!",
 		"_comment general info 3": "all values with 'WIP!' set are work in progress and unusuable until fully implimented.",
 
-		"text": "this is the text! use & for an extra long delay! also, if you dont want any text onscreen, still pass this variable or else itll print error text!",
+		"text": "this is the text! use & for an extra long delay! also, if you dont want any text onscreen, still pass this variable as an empty string just in case!",
 		
 		"_comment delay, custom delay and amount": "'delay' is the delay between characters. 'custom delay' is the delay produced by using '&'. 'amount' is the amount of characters shown per cycle.",
-		"_comment important note": "due to limitations in the godot engine, times passed bellow 0.05 seconds may result in ",
+		"_comment important note": "due to limitations in the godot engine, times passed bellow 0.05 seconds may result in inconsistent microscopic time differences. you should be able to use it like normal, but please let me know if any issues arrise!",
 		"delay": 0.03,
 		"custom delay": 0.5,
 		"amount": 1.0,
 		
-		"_comment end time": "'end time' is the ammout of seconds before the next line gets processed.",
-		"end time": 1.0,
+		"_comment end delay": "'end delay' is the ammout of seconds before the next line gets processed. goes instantly if set to 0",
+		"end delay": 1.0,
 		
 		"_comment icon and textbox": "'icon' is the Icon used in the dialog box, using an image file. recommended size: 128x128 px. 'textbox' allows you to change the textbox sprite. to return to default texture, use 'default'. recommended size: 960x320 px.",
 		"icon": "normal.png",
@@ -23,7 +23,22 @@
 		"textbox color": "#FFFFFF",
 		"icon color": "#FFFFFF",
 		
+		"_comment prefix and prefix color": "'prefix' is a symbol that appears before the text, think the * in undertale. theres 4 total 'slots', indicating their height position. 'prefix color' is the color of the prefix",
+		"_comment prefix offset": "'prefix offset' allows you to offset the icons in the XY axis. (INFO: In Godot, the engine running this program, Y is positive going down.)",
+		"_comment prefix delay": "'prefix delay' indicates how much time in seconds passes before the prefix in said slot appears. this is necessary because of font size, character delay, custom delay, etc",
+		"_comment extra help": "because this prefix stuff may not be immediatly obvious, you can either check out example.json or visit this video to learn more: WIP!",
+		"prefix": ["prefix_undertale.png", "", "prefix_undertale.png", "prefix_star.png"],
+		"prefix offset": [[0, 0], [0, 0], [0, 0], [0, 0]],
+		"prefix color": ["#FFFFFF", "", "#AAAAAA", ""],
+		"prefix delay": [1, 0, 3, 5],
+
 		"_comment font": "'font' allows you to set the font for the line, if none is set itll default to the last set font.",
-		"font": "Jersey15-Regular.ttf"
+		"font": ["Oswald.ttf", 40],
+
+		"_comment text shader": "'text shader' allows you to apply a .gdshader to the textbox. set to 'null' if you want to disable it again.",
+		"text shader": "WIP!",
+
+		"_comment event": "'event' allows you to execute a custom .gd script, basically giving you the ability to do whatever you want if you know what you're doing.",
+		"event": "WIP!"
 	}
 ]
