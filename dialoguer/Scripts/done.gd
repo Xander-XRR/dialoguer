@@ -6,11 +6,11 @@ extends Node2D
 @onready var command_output: TextEdit = $CommandOutput
 @onready var confirmation: ConfirmationDialog = $ConfirmationDialog
 
-signal gif_ready(message: String)
+signal file_ready(message: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	connect("gif_ready", _on_gif_ready)
+	connect("file_ready", _on_file_ready)
 	
 	var documents_path = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
 	if documents_path == "":
@@ -21,42 +21,57 @@ func _ready() -> void:
 	Global.assets_path = base_path
 	
 	var frames = ProjectSettings.globalize_path(Global.assets_path.path_join("Frames"))
-	var output = Global.output_name + ".gif"
-	var gif_path = ProjectSettings.globalize_path(Global.assets_path.path_join("GIFs"))
+	var output
+	var gif_path = ProjectSettings.globalize_path(Global.assets_path.path_join("Output"))
 	
 	await get_tree().process_frame
-	generate_gif(frames, gif_path, output)
+	
+	if Global.format == "GIF":
+		output = Global.output_name + ".gif"
+		generate_video_file(frames, gif_path, output)
+	elif Global.format == "Image":
+		command_output.text = "Images Created successfully!"
+		print("Images Created successfully!")
 	
 	if Global.auto_cleanup == true:
 		Global.cleanup("Frames")
 	
+	if Global.auto_open_output == true:
+		Global.open_folder("Output")
+	
 	new_process.grab_focus()
 	
 
-func generate_gif(frames_path: String, gifs_path: String, output_name: String) -> void:
+func generate_video_file(frames_path: String, gifs_path: String, output_name: String) -> void:
+	var palette_command = [
+		"-y",
+		"-framerate", str(Global.framerate),
+		"-i", frames_path.path_join("frame%05d.png"),
+		"-vf", '"fps='+str(Global.framerate)+',palettegen"', "palette.png"
+	]
+	
+	OS.execute("ffmpeg", palette_command, [], true)
+	
 	var command = [
 		"-y",
-		"-framerate", "30",
+		"-framerate", str(Global.framerate),
 		"-i", frames_path.path_join("frame%05d.png"),
-		"-vf", "scale=iw:-1:flags=lanczos",
+		"-i", "palette.png",
+		"-lavfi", '"fps='+str(Global.framerate)+',scale=iw:-1:flags=lanczos,paletteuse=dither=bayer:bayer_scale=5"',
 		gifs_path.path_join(output_name)
 	]
 	
 	print("Executing ffmpeg Command with arguments: " + str(command))
 	
-	var result = OS.execute("ffmpeg", command, [])
+	var result = OS.execute("ffmpeg", command, [], true)
 	
 	if result == OK:
-		print("GIF generated successfully!")
-		emit_signal("gif_ready", "GIF generated successfully!")
+		print(Global.format + " generated successfully!")
+		emit_signal("file_ready", Global.format + " generated successfully!")
 	else:
-		print("GIF couldn't be generated. Error Code: ", result)
-		emit_signal("gif_ready", "GIF couldn't be generated. Error Code: [" + str(result) + "]\nMake sure you have ffmpeg installed, or that you're using the right version of this program.")
+		print(Global.format + " couldn't be generated. Error Code: ", result)
+		emit_signal("file_ready",  Global.format + " couldn't be generated. Error Code: [" + str(result) + "]\nMake sure you have ffmpeg installed, or that you're using the right version of this program.")
 	
-
-
-func _on_clear_pressed() -> void:
-	Global.cleanup("Frames")
 
 
 func _on_close_pressed() -> void:
@@ -77,6 +92,10 @@ func _on_close_pressed() -> void:
 	get_tree().quit()
 
 
+func _on_clear_pressed() -> void:
+	Global.cleanup("Frames")
+
+
 func _on_confirmation_dialog_canceled() -> void:
 	get_tree().quit()
 
@@ -90,9 +109,9 @@ func _on_new_process_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/start.tscn")
 
 
-func _on_open_frames_pressed() -> void:
-	Global.open_folder("GIFs")
+func _on_open_output_folder_pressed() -> void:
+	Global.open_folder("Output")
 
 
-func _on_gif_ready(message: String) -> void:
+func _on_file_ready(message: String) -> void:
 	%CommandOutput.text = message

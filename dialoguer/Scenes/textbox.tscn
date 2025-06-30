@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cobnluovpckpi"]
+[gd_scene load_steps=5 format=3 uid="uid://cobnluovpckpi"]
 
 [ext_resource type="Script" uid="uid://thx83cf6ghwi" path="res://Scripts/textbox.gd" id="1_i40gg"]
 [ext_resource type="FontFile" uid="uid://cejbo1ev5c0n2" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="2_yyjux"]
 [ext_resource type="Texture2D" uid="uid://dsq3td880rt1c" path="res://Assets/Textbox Textures/DefaultTextbox.png" id="3_yyjux"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yyjux"]
+viewport_path = NodePath("TextViewport/SubViewport")
 
 [node name="Textbox" type="Control"]
 layout_mode = 3
@@ -39,25 +42,9 @@ unique_name_in_owner = true
 [node name="CustomTimer" type="Timer" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
 
-[node name="Text" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
-unique_name_in_owner = true
-z_index = 7
-offset_left = 336.0
-offset_top = 33.0
-offset_right = 928.0
-offset_bottom = 473.0
-theme_override_fonts/normal_font = ExtResource("2_yyjux")
-theme_override_fonts/italics_font = ExtResource("2_yyjux")
-theme_override_fonts/bold_italics_font = ExtResource("2_yyjux")
-theme_override_fonts/bold_font = ExtResource("2_yyjux")
-theme_override_font_sizes/bold_italics_font_size = 60
-theme_override_font_sizes/italics_font_size = 60
-theme_override_font_sizes/mono_font_size = 60
-theme_override_font_sizes/normal_font_size = 60
-theme_override_font_sizes/bold_font_size = 60
-bbcode_enabled = true
-text = "Uh oh"
-scroll_active = false
+[node name="TextSprite" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+position = Vector2(480, 160)
+texture = SubResource("ViewportTexture_yyjux")
 
 [node name="Prefixes" type="Node2D" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
@@ -88,6 +75,39 @@ position = Vector2(48, 48)
 [node name="Icon" type="Sprite2D" parent="SubViewportContainer/SubViewport/DialogIcon"]
 unique_name_in_owner = true
 position = Vector2(104, 104)
+
+[node name="TextViewport" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_left = -8.16
+offset_top = 608.0
+offset_right = 951.84
+offset_bottom = 928.0
+
+[node name="SubViewport" type="SubViewport" parent="TextViewport"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(960, 320)
+render_target_update_mode = 4
+
+[node name="Text" type="RichTextLabel" parent="TextViewport/SubViewport"]
+unique_name_in_owner = true
+z_index = 7
+offset_left = 336.0
+offset_top = 33.0
+offset_right = 928.0
+offset_bottom = 473.0
+theme_override_fonts/normal_font = ExtResource("2_yyjux")
+theme_override_fonts/italics_font = ExtResource("2_yyjux")
+theme_override_fonts/bold_italics_font = ExtResource("2_yyjux")
+theme_override_fonts/bold_font = ExtResource("2_yyjux")
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/italics_font_size = 60
+theme_override_font_sizes/mono_font_size = 60
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "Uh oh"
+scroll_active = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(479.84, 160)
