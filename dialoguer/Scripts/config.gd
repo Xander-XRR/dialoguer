@@ -14,20 +14,24 @@ extends Window
 @onready var remember_last_path: CheckBox = %RememberLastPath
 @onready var remember_last_type: CheckBox = %RememberLastType
 
+@onready var output_delete_confirmation: ConfirmationDialog = %OutputDeleteConfirmation
+@onready var assets_delete_confirmation: ConfirmationDialog = %AssetsDeleteConfirmation
+
 var title_shader_material = ShaderMaterial.new()
 const TITLE_SHADER = preload("res://Scripts/title.gdshader")
 
 func _ready() -> void:
 	title_shader_material.shader = TITLE_SHADER
 	if FileAccess.file_exists("user://settings.cfg"):
-		if load_config("graphics", "title_shader_enabled", true) == false:
-			title_shadered.material = null
-			disable_title_shaders.button_pressed = true
-			print("Title Shader Disabled")
-		else:
-			title_shadered.material = title_shader_material
-			disable_title_shaders.button_pressed = false
-			print("Title Shader Enabled")
+		if title_shadered:
+			if load_config("graphics", "title_shader_enabled", true) == false:
+				title_shadered.material = null
+				disable_title_shaders.button_pressed = true
+				print("Title Shader Disabled")
+			else:
+				title_shadered.material = title_shader_material
+				disable_title_shaders.button_pressed = false
+				print("Title Shader Enabled")
 		
 		if load_config("general", "auto_open_output", false) == true:
 			Global.auto_open_output = true
@@ -81,9 +85,6 @@ func load_config(section: String, key: String, default):
 	else:
 		return default
 
-func _on_exit_pressed() -> void:
-	hide()
-
 
 func _on_close_requested() -> void:
 	hide()
@@ -114,11 +115,11 @@ func _on_auto_cleanup_toggled(toggled_on: bool) -> void:
 
 
 func _on_delete_output_pressed() -> void:
-	%OutputDeleteConfirmation.popup()
+	output_delete_confirmation.popup()
 
 
 func _on_delete_assets_folders_pressed() -> void:
-	%AssetsDeleteConfirmation.popup()
+	assets_delete_confirmation.popup()
 
 
 func _on_remember_last_name_toggled(toggled_on: bool) -> void:
@@ -137,3 +138,9 @@ func _on_remember_last_type_toggled(toggled_on: bool) -> void:
 	save_config("general", "remember_last_type", toggled_on)
 	save_config("general", "last_type", start_node.format_options.selected)
 	print("Remember last used Type: " + str(toggled_on))
+
+
+func _on_window_input(event: InputEvent) -> void:
+	if event.is_action_pressed("escape"):
+		if !output_delete_confirmation.visible or !assets_delete_confirmation.visible:
+			hide()

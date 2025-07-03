@@ -4,8 +4,8 @@
 [ext_resource type="Shader" uid="uid://cij44fpm23um5" path="res://Scripts/title.gdshader" id="2_5ogh5"]
 [ext_resource type="Texture2D" uid="uid://cf7le7rwkygjv" path="res://Assets/Icons/Dropdown.png" id="2_o3wvq"]
 [ext_resource type="FontVariation" uid="uid://ud73lv1shyos" path="res://Assets/Fonts/jersey15-italic.tres" id="2_r48yj"]
-[ext_resource type="PackedScene" uid="uid://cm43q8shw55ww" path="res://Scenes/config.tscn" id="4_lb6bl"]
 [ext_resource type="FontFile" uid="uid://cejbo1ev5c0n2" path="res://Assets/Fonts/Jersey15-Regular.ttf" id="6_o3wvq"]
+[ext_resource type="PackedScene" uid="uid://cigootfel1a70" path="res://Scenes/configurations.tscn" id="6_pg4io"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bk35t"]
 
@@ -25,7 +25,7 @@ default_font_size = 40
 [node name="Start" type="Node2D"]
 script = ExtResource("1_3bxa3")
 platform = "Windows"
-version = "0.3"
+version = "0.4"
 fps = 30
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -85,14 +85,15 @@ focus_previous = NodePath("../FilePath")
 theme_override_font_sizes/font_size = 40
 theme_override_icons/arrow = ExtResource("2_o3wvq")
 selected = 0
-item_count = 3
+item_count = 4
 popup/item_0/text = "Image"
 popup/item_0/id = 0
 popup/item_1/text = "GIF"
 popup/item_1/id = 1
 popup/item_2/text = "MP4"
 popup/item_2/id = 2
-popup/item_2/disabled = true
+popup/item_3/text = "Audio"
+popup/item_3/id = 3
 
 [node name="StartTyping" type="Button" parent="."]
 offset_left = 16.0
@@ -146,7 +147,7 @@ offset_left = 368.0
 offset_top = -88.0
 offset_right = 696.0
 offset_bottom = 88.0
-tooltip_text = "Clears any .png Files in the Frames Folder."
+tooltip_text = "Deletes any temporary Files created and used during Generation of the Output Files."
 focus_neighbor_left = NodePath("../OutputFolder")
 focus_neighbor_top = NodePath("../Configs")
 focus_neighbor_right = NodePath("../OutputName")
@@ -154,7 +155,7 @@ focus_neighbor_bottom = NodePath("../CloseProgram")
 focus_next = NodePath("../Info")
 focus_previous = NodePath("../OutputFolder")
 theme_override_font_sizes/font_size = 40
-text = "Clear Frames"
+text = "Clean Temp Data"
 
 [node name="Info" type="Button" parent="."]
 offset_left = 16.0
@@ -204,15 +205,6 @@ text = "Dialoguer vVERSION"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="CleanConfirmationDialog" type="ConfirmationDialog" parent="."]
-title = ".png and .import files found"
-initial_position = 4
-size = Vector2i(545, 112)
-ok_button_text = "Cleanup"
-dialog_text = "This usually indicates leftover Frames in the Frames Folder.
-Would you like to remove them?"
-cancel_button_text = "Exit without Cleanup"
-
 [node name="InfoDialog" type="AcceptDialog" parent="."]
 title = "About Dialoguer"
 initial_position = 4
@@ -261,10 +253,6 @@ material = SubResource("ShaderMaterial_5ogh5")
 position = Vector2(-360, -152)
 texture = SubResource("ViewportTexture_lb6bl")
 
-[node name="Configurations" parent="." node_paths=PackedStringArray("start_node") instance=ExtResource("4_lb6bl")]
-visible = false
-start_node = NodePath("..")
-
 [node name="FileFoundntDialog" type="AcceptDialog" parent="."]
 unique_name_in_owner = true
 title = "File not found!"
@@ -274,11 +262,14 @@ theme = SubResource("Theme_pg4io")
 dialog_text = "The JSON File at the specified path was not found.
  Please Check the spelling and location of the file."
 
+[node name="Configurations" parent="." node_paths=PackedStringArray("start_node") instance=ExtResource("6_pg4io")]
+initial_position = 4
+visible = false
+start_node = NodePath("..")
+
 [connection signal="pressed" from="StartTyping" to="." method="_on_start_typing_pressed"]
 [connection signal="pressed" from="Configs" to="." method="_on_config_pressed"]
 [connection signal="pressed" from="OutputFolder" to="." method="_on_output_folder_pressed"]
 [connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="Info" to="." method="_on_info_pressed"]
 [connection signal="pressed" from="CloseProgram" to="." method="_on_close_program_pressed"]
-[connection signal="canceled" from="CleanConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
-[connection signal="confirmed" from="CleanConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

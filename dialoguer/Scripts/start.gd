@@ -12,7 +12,6 @@ extends Node2D
 
 @onready var start_typing: Button = $StartTyping
 
-@onready var confirmation: ConfirmationDialog = $CleanConfirmationDialog
 @onready var info_dialog: AcceptDialog = $InfoDialog
 @onready var configurations: Window = $Configurations
 
@@ -49,11 +48,6 @@ func _ready() -> void:
 	
 
 
-func removal_prompt():
-	confirmation.popup()
-	print("Opened dialog: " + confirmation.name)
-
-
 func _process(_delta: float) -> void:
 	if output_name.text == "" or file_path.text == "" or file_path.text.ends_with(".json") == false:
 		start_typing.disabled = true
@@ -63,11 +57,11 @@ func _process(_delta: float) -> void:
 
 func _on_start_typing_pressed() -> void:
 	Global.output_name = %OutputName.text.strip_edges()
-	print("Selected Output Name: " + Global.output_name)
+	print("Selected Output Name: ", Global.output_name)
 	Global.json_path = %FilePath.text
-	print("Selected File Path: " + Global.json_path)
+	print("Selected File Path: ", Global.json_path)
 	Global.format = %FormatOptions.get_item_text(%FormatOptions.selected)
-	print("Selected Format: " + Global.format)
+	print("Selected Format: ", Global.format)
 	
 	if configurations.load_config("general", "remember_last_name", false) == true:
 		Global.last_name = output_name.text
@@ -95,24 +89,13 @@ func _on_info_pressed() -> void:
 
 
 func _on_close_program_pressed() -> void:
-	Global.cleanup("Frames")
+	Global.cleanup("Temp")
 	print("Closing Program...")
 	get_tree().quit()
 
 
 func _on_clear_pressed() -> void:
-	Global.cleanup("Frames")
-
-
-func _on_confirmation_dialog_confirmed() -> void:
-	Global.cleanup("Frames")
-	print("Closing Program...")
-	get_tree().quit()
-
-
-func _on_confirmation_dialog_canceled() -> void:
-	print("Closing Program")
-	get_tree().quit()
+	Global.cleanup("Temp")
 
 
 func _on_output_folder_pressed() -> void:

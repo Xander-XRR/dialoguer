@@ -33,6 +33,10 @@ handle_input_locally = false
 size = Vector2i(960, 320)
 render_target_update_mode = 4
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+bus = &"Record"
+
 [node name="CharacterTimer" type="Timer" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
 
@@ -43,6 +47,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="TextSprite" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
 position = Vector2(480, 160)
 texture = SubResource("ViewportTexture_yyjux")
 
@@ -78,10 +83,10 @@ position = Vector2(104, 104)
 
 [node name="TextViewport" type="SubViewportContainer" parent="."]
 layout_mode = 0
-offset_left = -8.16
-offset_top = 608.0
-offset_right = 951.84
-offset_bottom = 928.0
+offset_left = 47.84
+offset_top = 832.0
+offset_right = 1007.84
+offset_bottom = 1152.0
 
 [node name="SubViewport" type="SubViewport" parent="TextViewport"]
 transparent_bg = true
@@ -106,7 +111,6 @@ theme_override_font_sizes/mono_font_size = 60
 theme_override_font_sizes/normal_font_size = 60
 theme_override_font_sizes/bold_font_size = 60
 bbcode_enabled = true
-text = "Uh oh"
 scroll_active = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
