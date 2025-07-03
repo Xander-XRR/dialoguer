@@ -1,52 +1,38 @@
 [
 	{
-		"_comment general info 1": "almost all provided values dont need to be spesified, and/or maintain their value from line to line, for more info please take a look at the README.md file",
-		"_comment general info 2": "all time variables are read in seconds.",
-		"_comment general info 3": "all values with 'WIP!' set are work in progress and unusuable until fully implimented.",
-
 		"text": "this is the text! use & for an extra long delay! also, if you dont want any text onscreen, still pass this variable as an empty string (like this: '') just in case!",
 		
-		"_comment delay, custom delay and amount": "'delay' is the delay between characters. 'custom delay' is the delay produced by using '&'. 'amount' is the amount of characters shown per cycle.",
-		"_comment important note": "due to limitations in the godot engine, times passed bellow 0.05 seconds may result in inconsistent time differences, differing by a frame. you should be able to use it like normal, but please let me know if any issues arrise!",
 		"delay": 0.03,
 		"custom delay": 0.5,
 		"amount": 1,
+
+		"end delay": 1.5,
 		
-		"_comment end delay": "'end delay' is the ammout of seconds before the next line gets processed. goes instantly if set to 0",
-		"end delay": 1.0,
-		
-		"_comment icon and icon scale": "'icon' is the Icon used in the dialog box, using an image file. recommended size: 256x256 px. 'icon scale' allows you to scale the icon to be bigger or smaller.",
-		"_comment icon rotation and icon offset": "'icon rotation' allows you to rotate the icon, passed in degrees. 'icon offset' allows you to offset the position of the icon in the XY axis (NOTE: positive Y is DOWN)",
-		"_comment icon color": "'icon color' modulates the icon towards the spesified color value",
 		"icon": "normal.png",
-		"icon scale": "WIP!",
-		"icon rotation": "WIP!",
-		"icon offset": "WIP!",
+		"icon scale": [1.5, 2.0],
+		"icon rotation": 90.0,
+		"icon offset": [40.0, 60.0],
+		"icon skew": 30.0,
 		"icon color": "#FFFFFF",
 		
-		"_comment textbox": "'textbox' allows you to change the textbox sprite. to return to default texture, use 'default' or ''. recommended size: 960x320 px.",
-		"_comment textbox color": "'textbox color' dictates the modulation of the textbox.",
 		"textbox": "FancyTextbox.png",
 		"textbox color": "#FFFFFF",
 		
-		"_comment prefix and prefix color": "'prefix' is a symbol that appears before the text, think the * in undertale. theres 4 total 'slots', indicating their height position. 'prefix color' modulates the color of the prefix.",
-		"_comment prefix offset": "'prefix offset' allows you to offset the icons in the XY axis (NOTE: positive Y is down.). 'prefix scale' allows the prefix to be scaled to be bigger or smaller",
-		"_comment prefix delay": "'prefix delay' indicates how much time in seconds passes before the prefix in said slot appears. this is necessary because of font size, character delay, custom delay, etc",
-		"_comment extra help": "because this prefix stuff may not be immediatly obvious, you can either check out example.json or visit this video to learn more: WIP!",
 		"prefix": ["prefix_undertale.png", "", "prefix_undertale.png", "prefix_star.png"],
-		"prefix scale": "WIP!",
-		"prefix rotation": "WIP!",
-		"prefix offset": "WIP!",
-		"prefix color": ["#FFFFFF", "", "#AAAAAA", ""],
-		"prefix delay": [1, 0, 3, 5],
+		"prefix scale": [[], [], [2.0, 1.0], [1.0, 2.0]],
+		"prefix rotation": [0.0, 0.0, 20.0, -35.0],
+		"prefix offset": [[0.0, 0.0], [0.0, 0.0], [3.0, 6.6], [1.0, -3.0]],
+		"prefix skew": [0, 0, 30.0, -40.0],
+		"prefix color": ["#FFFFFF66", "", "#FFFFFF", "#FFFFFF"],
+		"prefix delay": [1.0, 0, 2.0, 3.5],
 
-		"_comment font": "'font' allows you to set the font for the line, if none is set itll default to the last set font.",
 		"font": ["Oswald.ttf", 40],
 
-		"_comment text shader": "'text shader' allows you to apply a .gdshader to the textbox. set to 'null' if you want to disable it again.",
-		"text shader": "WIP!",
+		"sound": "VoiceSound.ogg",
 
-		"_comment event": "'event' allows you to execute a custom .gd script, basically giving you the ability to do whatever you want if you know what you're doing.",
-		"event": "WIP!"
+		"shader": "ghost.gdshader",
+		"shader parameters": {"offset_amount": 8.0, "time_speed": 1.5},
+
+		"event": "custom_code.gd"
 	}
 ]

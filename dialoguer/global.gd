@@ -57,14 +57,8 @@ func clean_subfolders() -> void:
 	filename = dir.get_next()
 	
 	while filename != "":
-		if filename.ends_with(".png"):
-			deleted_files.append(filename)
-			dir.remove(filename)
-		
-		elif filename.ends_with(".import"):
-			deleted_files.append(filename)
-			dir.remove(filename)
-		
+		deleted_files.append(filename)
+		dir.remove(filename)
 		filename = dir.get_next()
 	dir.list_dir_end()
 	
@@ -73,14 +67,8 @@ func clean_subfolders() -> void:
 	filename = dir.get_next()
 	
 	while filename != "":
-		if filename.ends_with(".png"):
-			deleted_files.append(filename)
-			dir.remove(filename)
-		
-		elif filename.ends_with(".import"):
-			deleted_files.append(filename)
-			dir.remove(filename)
-		
+		deleted_files.append(filename)
+		dir.remove(filename)
 		filename = dir.get_next()
 	dir.list_dir_end()
 	

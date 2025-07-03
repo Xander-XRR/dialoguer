@@ -1,0 +1,118 @@
+--- Explanation of every Variable, it's Type and how they work ---
+
+- General good-to-knows -
+
+On startup, Dialoguer will generate a 'Dialoguer Assets' Folder in your Documents Folder.
+All variables which involve loading a texture, script, or other file pull their Assets from Subfolders inside of 'Dialoguer Assets'.
+Example: Dialogue files should be stored in 'Documents/Dialoguer Assets/Dialogue'. from there, when asked for, give the field the full name of the file, like info.json.
+All time-based variables are set in seconds.
+Using the terminal to launch Dialoguer gives a lot of insight on whats happening, and may help resolve any issues you encounter.
+
+- Type explainations -
+
+String: a line of text characters, encased in quotation marks. examples: "Hello World!", "this 3 is considered text", ""
+int: numbers without decimal place. examples: 1, -7, 30
+float: numbers with decimal place. examples: 6.9, 3.333, -32.767
+Array: a list of values encased in square brackets, with values seperated by commas. examples: ["Hello", "World", 123], [[0, -1], ["Banana", "Bread"]]
+Dictionary: a list of values assigned to names encased in squirly brackets, with values seperated by commas. example: {"Bob": "Builder", "Age": 45}
+
+- Variable explainations -
+
+text: String (Default: "") (works in: all)
+    The Text that'll be displayed in the Textbox.
+
+delay: float (Default: 0.03) (works in: GIF, MP4, Audio)
+    The delay between two text characters showing up when typing in Typewriter mode (GIF, MP4, Audio) in seconds.
+    ".", "!" and "?" apply an extra 0.5 seconds of delay.
+    "," applies an extra 0.3 seconds of delay.
+
+custom delay: float (Default: 0.5) (works in: GIF, MP4, Audio)
+    The delay a "&" character adds after being typed in seconds.
+    "&" acts like a control character, not being visibly shown but instead adding a certain amount of delay before showing the next character.
+
+amount: int (Default: 1) (works in: GIF, MP4, Audio)
+    The amount of characters being shown per character showing cycle.
+
+end delay: float (Default: 1.5) (works in: GIF, MP4, Audio)
+    The amount of time in seconds after the last character is shown before switching to the next line.
+
+icon: String (Default: "") (works in: all)
+    The name of the file which will be assigned to the icon's sprite.
+    Must be in 'Dialoguer Assets/Dialogue Icons/', and must be a valid file format (PNG, JPG).
+    Can be left as an empty String ("") to remove any applied texture.
+
+icon scale: Array[float, float] (Default: [1.0, 1.0]) (works in: all)
+    The amount of scaling assigned to the icon texture (example: [2.0, 2.0] is twice as big, [0.5, 0.5] is half as big).
+
+icon rotation: float (Default: 0.0) (works in: all)
+    The rotation applied to the icon texture, in degrees.
+
+icon offset: Array[float, float] (Default: [0, 0]) (works in: all)
+    The offset in position applied to the icon texture in XY space.
+    Note: positive Y is down.
+
+icon skew: float (Default: 0.0) (works in: all)
+    If a non-zero value, slants the icon texture towards the value in the X axis.
+
+icon color: String (Default: #ffffff) (works in: all)
+    The color applied to the icon texture.
+    Note: supports transparency by adding an extra two hex characters at the end (example: "#ffffff66").
+
+textbox: String (Default: "") (works in: all)
+    The name of the file which will be assigned to the textbox's sprite.
+    Must be in 'Dialoguer Assets/Texbox Textures/', and must be a valid file format (PNG, JPG).
+    Can be left as an empty String ("") to remove any applied texture and reapply the default one.
+
+textbox color: String (Default: #ffffff) (works in: all)
+    The color applied to the textbox texture.
+    Note: supports transparency by adding an extra two hex characters at the end (example: "#ffffff66").
+
+prefix: Array[String, String, String, String] (Default: ["", "", "", ""]) (works in: all)
+    The Names of the files which will be assigned to the prefix sprites.
+    The Sprites go from up to down, left to right (example: ["prefix.png", "prefix.png", "", ""] will assign prefix.png to the top and second prefix slot).
+    Must be in 'Dialoguer Assets/Prefixes/', and must be a valid file format (PNG, JPG).
+    Can be left as an empty String ("") to remove the targeted prefix's applied texture.
+
+prefix scale: Array[[float, float], [float, float], [float, float], [float, float]] (Default: [[1.0, 1.0], [1.0, 1.0], [1.0, 1.0], [1.0, 1.0]]) (works in: all)
+    The amount of scaling assigned to the targeted prefix's texture (example: [[], [2.0, 2.0], [], []] makes the second prefix twice as big).
+
+prefix rotation: Array[float, float, float, float] (Default: [0.0, 0.0, 0.0, 0.0]) (works in: all)
+    The rotation applied to the targeted prefix's texture, in degrees.
+
+prefix offset:  Array[[float, float], [float, float], [float, float], [float, float]] (Default: [[0.0, 0.0], [0.0, 0.0], [0.0, 0.0], [0.0, 0.0]]) (works in: all)
+    The offset in position applied to the targeted prefix's texture in XY space.
+    Note: positive Y is down.
+
+prefix skew: Array[float, float, float, float] (Default: [0.0, 0.0, 0.0, 0.0]) (works in: all)
+    If a non-zero value, slants the targeted prefix's texture towards the value in the X axis.
+
+prefix color: Array[String, String, String, String] (Default: ["#ffffff", "#ffffff", "#ffffff", "#ffffff"]) (works in: all)
+    The color applied to the targeted prefix's texture.
+    Note: supports transparency by adding an extra two hex characters at the end (example: "#ffffff66").
+
+prefix delay: Array[float, float, float, float] (Default: [0.0, 0.0, 0.0, 0.0]) (works in: all)
+    The delay before every prefix is set visible.
+    Note: if not spesified or left empty, makes all prefixes show instantly.
+
+font: Array[String, int] (Default: ["", 60]) (works in: all)
+    The name of the font file used by the textbox text.
+    Must be in 'Dialoguer Assets/Fonts/', and must be a valid file format (TrueType Font).
+    The second value spesifies the font size.
+
+sound: String (Default: "") (works in: GIF, MP4, Audio) (Note: sound won't be stored when GIF is selected.)
+    Plays the given files sound whenever a text character is shown, similar to the text blips from UNDERTALE(TM).
+    Must be in 'Dialoguer Assets/Audio/', and must be a valid file format (OGG).
+
+shader: String (Default: "") (works in: all)
+    Applies the given GDShader to the textbox's text.
+    Must be in 'Dialoguer Assets/Shaders/', and must be a valid GDShader.
+
+shader parameters: Dictionary (Default: {}) (works in: all)
+    Allows you to pass parameters to the textbox's text's shader if any is applied.
+    Example: {"time_speed": 1.5}
+
+event: String (Default: "") (works in: all)
+    Allows you to execute any external GDScript file in 'Dialoguer Assets/Events/'.
+    When a Script is passed, Dialoguer will look for an execute(target) method.
+    This function will then be executed, with target being the root node of the textbox scene (Textbox).
+    Note: This feature hasn't been tested much, so be careful with what you execute.
