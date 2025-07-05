@@ -9,7 +9,7 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_bk35t"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ogh5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pg4io"]
 shader = ExtResource("2_5ogh5")
 shader_parameter/offset_amount = 15.0
 shader_parameter/time_speed = 1.0
@@ -24,8 +24,8 @@ default_font_size = 40
 
 [node name="Start" type="Node2D"]
 script = ExtResource("1_3bxa3")
-platform = "Windows"
-version = "0.4"
+platform = "Linux"
+version = "0.4.1"
 fps = 30
 
 [node name="Camera" type="Camera2D" parent="."]
@@ -45,7 +45,6 @@ focus_neighbor_bottom = NodePath("../FilePath")
 focus_next = NodePath("../FilePath")
 focus_previous = NodePath("../CloseProgram")
 theme_override_font_sizes/font_size = 35
-text = "example"
 placeholder_text = "File Name (example: 'name' becomes 'name.gif')"
 
 [node name="FilePath" type="LineEdit" parent="."]
@@ -62,7 +61,6 @@ focus_neighbor_bottom = NodePath("../FormatOptions")
 focus_next = NodePath("../FormatOptions")
 focus_previous = NodePath("../OutputName")
 theme_override_font_sizes/font_size = 35
-text = "silly.json"
 placeholder_text = "Dialogue File (example: name.json)"
 
 [node name="FormatOptions" type="OptionButton" parent="."]
@@ -73,9 +71,10 @@ offset_right = -16.0
 offset_bottom = 288.0
 tooltip_text = "Select the file format you want.
 
-- GIF: Generates a GIF with the provided text.
 - Image: Generates a PNG per line with the text fully visible in the provided File.
-- MP4: Generates a video with the provided File, including audio."
+- GIF: Generates a GIF with the provided text.
+- MP4: Generates a video with the provided File, including audio.
+- Audio: Generates only a WAV file of all the audio."
 focus_neighbor_left = NodePath("../CloseProgram")
 focus_neighbor_top = NodePath("../FilePath")
 focus_neighbor_right = NodePath("../Info")
@@ -249,7 +248,7 @@ vertical_alignment = 1
 [node name="TitleShadered" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 z_index = -1
-material = SubResource("ShaderMaterial_5ogh5")
+material = SubResource("ShaderMaterial_pg4io")
 position = Vector2(-360, -152)
 texture = SubResource("ViewportTexture_lb6bl")
 

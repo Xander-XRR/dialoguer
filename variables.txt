@@ -116,3 +116,4 @@ event: String (Default: "") (works in: all)
     When a Script is passed, Dialoguer will look for an execute(target) method.
     This function will then be executed, with target being the root node of the textbox scene (Textbox).
     Note: This feature hasn't been tested much, so be careful with what you execute.
+    Note: When adding sound related events, target the "Record" bus if you want the audio to be recorded.

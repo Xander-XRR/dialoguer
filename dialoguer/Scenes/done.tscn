@@ -33,13 +33,13 @@ offset_left = -336.0
 offset_top = 72.0
 offset_right = -16.0
 offset_bottom = 256.0
-tooltip_text = "Clears the Frames Folders of any .png Files."
+tooltip_text = "Cleans the Temp Folder."
 focus_neighbor_left = NodePath("../NewProcess")
 focus_neighbor_right = NodePath("../OpenOutputFolder")
 focus_next = NodePath("../OpenOutputFolder")
 focus_previous = NodePath("../NewProcess")
 theme_override_font_sizes/font_size = 40
-text = "Clear Frames"
+text = "Clear Temp Folder"
 
 [node name="OpenOutputFolder" type="Button" parent="."]
 offset_left = 16.0
