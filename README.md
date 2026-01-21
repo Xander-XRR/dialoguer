@@ -1,3 +1,6 @@
+# [!] This project is currently being rewritten.
+I'm currently in the process of rewritting Dialoguer from scratch. Why? Well, the old code kinda sucks. And after taking a look at the project as a whole, fixing every issue i have with it would practically already be a whole rewritting. More info will be provided a bit later.
+
 # Dialoguer
 Undertale style Dialogue Generator made to be as customizable as Godot allows me to make it!
 
