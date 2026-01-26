@@ -17,12 +17,12 @@ To create a Dialogue File, follow these Steps:
 2. Open Dialoguer at least once. It will automatically generate the folders you'll need for your assets in your Documents Folder under `Documents/Dialoguer Assets`.
 3. Go to `/Dialoguer Assets/Dialogue` and create an empty document/empty text file.
 4. Name it whatever you want and make it a JSON file. (if you made an empty text file, replace the .txt at the end with .json)
-5. Start typing! In the GitHub Page, theres a `Dialoguer Assets` Folder with some Stuff already in it, so feel free to check it out to see how everything works! (Spesifically, look in `Dialoguer Assets/Dialogue` or look in `variables.txt` to find some examples/info!)
+5. Start typing! In the GitHub Page, theres a `Dialoguer Assets` Folder with some Stuff already in it, so feel free to check it out to see how everything works! (Specifically, look in `Dialoguer Assets/Dialogue` or look in `variables.txt` to find some examples/info!)
 6. Run the program, put the Files desired Name in the first field, the JSON file in `Dialoguer Assets/Dialogue`s Name and select the Format, then start.
 7. It'll show the textbox typing the characters out, so if you wanna change anything simply make that change and try again!
 8. Open the Output Folder and enjoy your Generated Textbox!
 
-**NOTE**: Launching it from your OSs Terminal will allow you to see a bunch of debugging text, so if you get stuck it may be worth checking out.
+**NOTE**: Launching the Program from your OSs Terminal will allow you to see a bunch of debugging text, so if you get stuck it may be worth checking out.
 
 **NOTE**: For now, when something goes wrong and the program doesn't seem to continue with the dialogue, force-close it and clear the Frames Folder on startup. Clearing the leftover frames is always recommended as it might mess with your future GIFs otherwise.
 
