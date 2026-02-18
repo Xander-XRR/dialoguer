@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Fonts/Jersey15-40.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Textures/background_tex.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/done.gd" type="Script" id=3]
+
+[node name="Done" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 45.5, 20.5 )
+texture = ExtResource( 2 )
+
+[node name="NewProcess" type="Button" parent="."]
+margin_left = -688.0
+margin_top = 72.0
+margin_right = -368.0
+margin_bottom = 256.0
+custom_fonts/font = ExtResource( 1 )
+text = "Return to Start"
+
+[node name="Clear" type="Button" parent="."]
+margin_left = -336.0
+margin_top = 72.0
+margin_right = -16.0
+margin_bottom = 256.0
+custom_fonts/font = ExtResource( 1 )
+text = "Clear Temp Folder"
+
+[node name="OpenOutputFolder" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 72.0
+margin_right = 336.0
+margin_bottom = 256.0
+custom_fonts/font = ExtResource( 1 )
+text = "Open Output Folder"
+
+[node name="Close" type="Button" parent="."]
+margin_left = 368.0
+margin_top = 72.0
+margin_right = 688.0
+margin_bottom = 256.0
+custom_fonts/font = ExtResource( 1 )
+text = "Close Program"
+
+[node name="CommandOutput" type="TextEdit" parent="."]
+margin_left = -688.0
+margin_top = -272.0
+margin_right = 688.0
+custom_fonts/font = ExtResource( 1 )
+text = " Processing...
+ (This may take a while depending on how long and complex the File is)"
+readonly = true
+
+[connection signal="pressed" from="NewProcess" to="." method="_on_new_process_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="OpenOutputFolder" to="." method="_on_open_output_folder_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
